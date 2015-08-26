@@ -8,7 +8,7 @@ module Contmx
       rfc = repauxfol["RFC"]
       anio = repauxfol["anio"]
       mes= repauxfol["mes"]
-      preffix = "BCE"
+      preffix = "BN"
 
       name_file_xml = rfc + anio + mes+ preffix
       return name_file_xml + ".xml"
