@@ -163,19 +163,15 @@ en las variables de instancia
 =end
 
   def writeXML(xml)
+    self.class.to_s # Balanza
+    class_name = self.class.to_s.split("::").last
     if @targetNamespace.nil?
-      xml.send(self.class.to_s.split("::").last){
+      xml.send("BCE:#{class_name}"){
         write_attributes_elements(xml)
       }
     else
       prefix = "#{@targetNamespace[:prefix]}"
-      namespace = "#{@targetNamespace[:namespace]}"
-      xml.send(self.class.to_s.split("::").last){
-=begin
-        ins = xml.parent.add_namespace_definition(prefix, namespace)
-        xml.parent.namespace = ins
-=end
-
+      xml.send("#{prefix}:#{class_name}") {
         write_attributes_elements(xml)
       }
     end
@@ -202,6 +198,10 @@ def attribites_to_hash
   if !@schemaLocation.nil?
     hash["xmlns:xsi"] = "http://www.w3.org/2001/XMLSchema-instance"
     hash["xsi:schemaLocation"] = "#{@schemaLocation}"
+  end
+  if !@targetNamespace.nil?
+    prefix = @targetNamespace[:prefix]
+    hash["xmlns:#{prefix}"] ="#{@targetNamespace[:namespace]}"
   end
   return hash;
 end

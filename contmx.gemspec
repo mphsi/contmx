@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'contmx'
-  s.version     = '0.0.4'
+  s.version     = '0.0.6'
   s.date        = '2015-07-27'
   s.summary     = "XML de contabilidad de mexico"
   s.description = "Contabilidad en medios electronicos"
