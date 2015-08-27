@@ -1,7 +1,0 @@
-balanza = Contmx::Balanza.new(:version =>"1.1", :rfc => "AAA010101AAA", :anio=>"2015", :mes=>"01", :TipoEnvio=>"N")
- balanza.ctas= Array.new
-cuenta_1 = Contmx::Ctas.new(:numCta=>"10000", :saldoini=>"0", :debe =>"100", :haber=>"0", :saldofin =>"100")
-balanza.ctas << cuenta_1
-writer= Contmx::BCE.new
-path_xml = writer.to_xml_file_sat("/home/hyde/Desktop", balanza)
-
