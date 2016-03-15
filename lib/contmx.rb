@@ -6,7 +6,6 @@ require "contmx/bce/ctas"
 
 require "contmx/catalogo_cuentas"
 require "contmx/catalogo_cuentas/catalogo"
-require "contmx/catalogo_cuentas/catalogocuentas"
 require "contmx/catalogo_cuentas/ctas"
 
 module Contmx
